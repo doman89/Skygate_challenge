@@ -472,6 +472,39 @@ class SubForm extends MainForm {
 
 const databaseJSON = new DatabaseJSON();
 
+var request = indexedDB.open('database', 1);
+
+request.onerror = function (event) {
+    alert("Error i can't create database");
+}
+
+request.onsuccess = function (event) {
+    db = this.result;
+    const transaction = db.transaction(['dbJSON'], 'readwrite');
+    const store = transaction.objectStore('dbJSON');
+    const request = store.get(1);
+    request.onsuccess = function (event) {
+        if (request.result === undefined)
+            databaseJSON.setDatabase("{}");
+        else if (request.result[0] != '{' && request.result[request.result.length - 1] != '}')
+            databaseJSON.setDatabase("{}");
+        else
+            databaseJSON.setDatabase(request.result);
+    };
+}
+request.onupgradeneeded = function (event) {
+    request.result.createObjectStore('dbJSON');
+};
+
+
+
+const saveData = (value) => {
+    db = this.request.result;
+    const transaction = db.transaction(['dbJSON'], 'readwrite');
+    const store = transaction.objectStore('dbJSON');
+    store.put(value, 1);
+}
+
 const mainButton = document.querySelector(".mainButton");
 
 const updateView = () => {
@@ -507,3 +540,7 @@ mainButton.addEventListener('click', () => {
     updateView();
 
 })
+setTimeout(updateView, 100);
+setInterval(() => {
+    saveData(databaseJSON.getDatabase());
+}, 100);
