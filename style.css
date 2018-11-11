@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: arial, sans-serif;
+}
+
+@media (min-width: 360px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 410px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1366px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+body {
+    background-color: #000;
+    color: #FFF
+}
+
+button {
+    background-color: #000;
+    border: 1px solid #F00;
+    color: #FFF;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:focus {
+    outline: none;
+}
+
+form {
+    overflow: hidden;
+    width: 30vw;
+    border: 1px solid #F00;
+    margin: 10px 2px;
+    padding: 5px 2px;
+}
+
+form:hover {
+    border-color: #0F0;
+}
+
+.formRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    padding: 5px 2px;
+    /* text-align: center; */
+}
+
+.formRow label {
+    display: inline-block;
+    flex-basis: 20%;
+    margin-right: 5px;
+    line-height: 200%;
+}
+
+.formRow input {
+    background-color: #000;
+    border: 1px solid #F00;
+    color: white;
+    font-size: 1rem;
+    /* max-width: 60%; */
+    flex-grow: 1;
+    padding: 2px 5px;
+}
+
+.formRow input:focus {
+    border-color: #0F0;
+    outline: none;
+}
+
+.formRow select {
+    background-color: #000;
+    border: 1px solid #F00;
+    color: #FFF;
+    flex-grow: 1;
+    padding: 2px 5px;
+    font-size: 1rem;
+}
+
+.formRow select:focus {
+    outline: none;
+    border-color: #0F0;
+}
+
+.formRow.buttons {
+    justify-content: flex-end;
+}
+
+.formRow.buttons>* {
+    margin-right: 10px;
+    font-size: 0.7rem;
+    flex-basis: 30%;
+}
+
+
+/* @media (min-width: 1024px) { */
+button:hover {
+    background-color: #F00;
+
+}
+
+ul {
+    list-style: none;
+}
+
+ul li ul {
+    margin-left: 40px;
+}
+
+/* } */
